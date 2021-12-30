@@ -1,6 +1,10 @@
 
 # R lesson 1 part 2 -------------------------------------------------------
 
+rm(list = ls())
+
+setwd("~/Work/Python.club/")
+
 # Matrices -------------------------------------------------------
 
 # Matrix is a two-dimensional numeric array
@@ -8,10 +12,7 @@
 # Let's create a matrix and fill it with random numbers sampled from a uniform distribution
 mat.1 <- matrix(ncol = 5, nrow = 10, c(sample(1:100, 50)))
 
-# We can also create an empty matrix filled with NAs (generally a bad idea)
-mat2 <- matrix(, ncol = 5, nrow = 10)
-
-# We can give the rows and columns of a matrix names
+# We can give the rows and columns of a matrix their names
 dimnames(mat.1) <- list(c(letters[1:10]), 
                         c("John", "Mary", "NoName", "DeleteTableStudents", "Opossum"))
 
@@ -63,7 +64,7 @@ df$Age.years <- c(17, 16, 19, 18)
 df$Weight.lb <- c(115, 180, 135, 163)
 df$Height.cm <- c(150, 182, 165, 190)
 df$Grade <- c("A", "A", "B", "C")
-df$Blonde <- c("TRUE", "TRUE", "FALSE", "FALSE")
+df$Blonde <- c(TRUE, TRUE, FALSE, FALSE)
 
 # We can give rows names, just like with matrices
 row.names(df) <- paste("Student.", c(1:4), sep = "")
@@ -72,7 +73,7 @@ row.names(df) <- paste("Student.", c(1:4), sep = "")
 df$Eye.color <- c("Green", "Brown", "Grey", "Red")
 
 # Subsetting a data frame
-girls <- subset(df, Name == "Mary" | Name ==  "Agnes")
+girls <- subset(df, Name == "Mary" | Name ==  "Agnes")  # | is a boolean operator "OR". 
 heavy <- subset(df, Weight.lb > 150)
 vampires <- subset(df, Eye.color == "Red")
 
@@ -81,7 +82,7 @@ df <- df[order(df$Age.years), ]
 
 # Deleting data from a data frame
 df.1 <- df[, -6]
-df.2 <- df[!(df$Blonde == "TRUE"), ]
+df.2 <- df[!(df$Blonde == "TRUE"), ]  # ! sign stands for "not"  (also a boolean)
 
 
 # Lists -------------------------------------------------------------------
@@ -103,11 +104,30 @@ l1 <- list(l2, mat.1, df, c("TRUE", "TRUE", "FALSE"), c("Dmitri", "Kazmin"), c(1
 
 # Investigate the contents of the list
 l1[[1]][[1]][3] # This should be "c"
-l1[[2]][2,3]  # This should be 87
+l1[[2]][2,3]  # This should be whatever random number
 l1[[3]]$Name  # THis should produce the names of four students
 l1[[4]]  # This should produce a logical vector
 paste(l1[[5]][1], l1[[5]][2], sep = " ")  # This should produce "Dmitri Kazmin"
 l1[[6]][11]  # This should produce out-of-bounds error or an NA value
+
+# Hands-on exercise: 
+
+# Extract the smallest number from the first column of mat.1
+# Extract the greatest number from the last row of mat.1
+# Find out the name of the student (or students) who is taller than 180 cm and is blonde in the df data frame
+# Find out the name of the student with the lowest grade in the df data frame (don't assume that the lowest grade is C )
+
+
+# Cheat sheet -------------------------------------------------------------
+
+# in my case 
+mat.1[9, 1]
+mat.1[10, 1]
+
+df$Name[df$Height.cm > 180 & df$Blonde == TRUE]
+
+df <- df[order(df$Grade), ]
+df$Name[4]
 
 
 # HOMEWORK ----------------------------------------------------------------
@@ -115,9 +135,12 @@ l1[[6]][11]  # This should produce out-of-bounds error or an NA value
 # 1. Create one variable of each type known to you, except a list
 # 2. Create a list of all of these variables
 # 3. Extract subsets of data from each member of the list using indexing
+# 4. Create an account on Github
+# 5. Send me your email that you used to register, or your user name, so I could invite you to the repository. 
 
-# Upload your code to Github!!! 
+# Upload your code to Github to the branch named "homework"!!! 
 # Make sure your homework code is labeled with your name in the filename!!!
+# If you get stuck, open an issue on Github
 
 
 

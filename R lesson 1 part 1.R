@@ -17,7 +17,7 @@ dim(My_first_variable) # Which is "NULL", indicating that this variable has no d
 My_second_variable <- c("Hello", "world","!")
 # c(), which stands for "combine", is an accessory function which combines its arguments into a single variable. 
 
-# We can find out the dimensions of the new variable: However it wil not be 1 by 3, as vectors do not have dimensions
+# We can find out the dimensions of the new variable: However it will not be 1 by 3, as vectors do not have dimensions
 dim(My_second_variable)
 
 # However, vectors have length, which can be found out by using the length() function
@@ -37,9 +37,38 @@ three <- My_second_variable[3]
 My_third_variable <- c(one, two, three, "My name is Vanya", "I am", 38, "years", "old")
 
 # Can we print the contents of a character array as a readable text? 
-print(My_third_variable)  # Ugh... ths is not what we want
+print(My_third_variable)  # Ugh... this is not what we want
 # but what if we try it with cat()? (Anothеr concatenation function. The same function also exists in Bash)
 cat(My_third_variable, "\n", sep=" ")
 
 # Likewise, we can use the paste() function to output a concatenated string to a variable: 
 mitia <- paste("Dmitri", "Kazmin", sep=" ")
+
+# Hands-on exercise: 
+
+# Create a variable named "first" that contains your first name
+# Create a variable named "last" that contains your last name
+# Create a variable named "name" that contains both your first and your last names separated by a white space
+# Create a variable named "age" that contains your age in years
+# Create a variable named "location" that contains the name of your hometown and state (such as "New York, NY")
+
+# Using paste() and cat() functions to create the following output: 
+
+#  Hello! My name is YourFirstName YourLastName. 
+#  I live in YourHomeTown.
+#  I was born in (2021 - YourAge).
+
+
+
+# Cheat sheet -------------------------------------------------------------
+
+first <- "Dmitri"
+last <- "Kazmin"
+name <- paste(first, last, sep = " ")
+age <- 50
+location <- "Lilburn, GA"
+birthyear <- 2021 - age
+
+cat("Hello! My name is", name, ".", "\n", 
+    "I live in", location, ".", "\n", 
+    "I was born in", birthyear, "\n")
