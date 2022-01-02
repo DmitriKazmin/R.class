@@ -100,7 +100,7 @@ l2[[2]]
 l2[[1]][3:5]
 
 # Add data to an empty list
-l1 <- list(l2, mat.1, df, c("TRUE", "TRUE", "FALSE"), c("Dmitri", "Kazmin"), c(1:10)) 
+l1 <- list(l2, mat.1, df, c(TRUE, TRUE, FALSE), c("Dmitri", "Kazmin"), c(1:10)) 
 
 # Investigate the contents of the list
 l1[[1]][[1]][3] # This should be "c"
