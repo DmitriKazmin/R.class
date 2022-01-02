@@ -8,7 +8,7 @@ setwd("~/Work/Python.club/")  # This sets the active (working) directory.
 
 # Matrices -------------------------------------------------------
 
-# Matrix is a two-dimensional numeric array
+# Matrix is a two-dimensional numeric or logical array
 
 # Let's create a matrix and fill it with random numbers sampled from a uniform distribution
 mat.1 <- matrix(ncol = 5, nrow = 10, c(sample(1:100, 50)))
@@ -87,7 +87,7 @@ df <- df[order(df$Age.years), ]
 
 # Deleting data from a data frame
 df.1 <- df[, -6]
-df.2 <- df[!(df$Blonde == "TRUE"), ]  # ! sign stands for "not"  (also a boolean)
+df.2 <- df[!(df$Blonde == TRUE), ]  # ! sign stands for "not"  (also a boolean)
 
 
 # Lists -------------------------------------------------------------------
