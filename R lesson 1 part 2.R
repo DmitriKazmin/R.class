@@ -1,9 +1,10 @@
 
 # R lesson 1 part 2 -------------------------------------------------------
 
-rm(list = ls())
+rm(list = ls())  # THis deletes all variables, values and functions and clears the workspace. 
 
-setwd("~/Work/Python.club/")
+setwd("~/Work/Python.club/")  # This sets the active (working) directory. 
+# Modify this line to include the path to your working directory. 
 
 # Matrices -------------------------------------------------------
 
@@ -39,23 +40,25 @@ mat.1[, 3]
 mat.1[5, ]
 
 # To get the last column, we can use: 
-mat.1[, ncol(mat.1)]
+mat.1[, ncol(mat.1)]   # ncol() is a function that produces the number of columns in a matrix or data frame
 
 # Or the previous to last row: 
-mat.1[nrow(mat.1) - 1, ]
+mat.1[nrow(mat.1) - 1, ]   # nrow() is a function that produces the number of rows in a matrix or data frame
 
 
 # Data frames -------------------------------------------------------------
 
 # Data frames are two-dimensional structures that can hold both character, numeric and logical values
 
-# Create an empty 4x6 data frame
+# Create an empty 4x6 data frame (4 rows and 6 columns)
 df <- data.frame("Name" = factor(4), 
                  "Age.years" = integer(4), 
                  "Weight.lb" = numeric(4), 
                  "Height.cm" = numeric(4), 
                  "Grade" = character(4), 
                  "Blonde" = logical(4))
+# Here we specify the types of data that will go into each column. 
+# You cannot mix different data types (numbers, strings or logicals) in one column. 
 
 # Fill it with values. 
 # To refer to the columns of a data frame, we use the dollar sign $
@@ -65,6 +68,8 @@ df$Weight.lb <- c(115, 180, 135, 163)
 df$Height.cm <- c(150, 182, 165, 190)
 df$Grade <- c("A", "A", "B", "C")
 df$Blonde <- c(TRUE, TRUE, FALSE, FALSE)
+
+View(df) 
 
 # We can give rows names, just like with matrices
 row.names(df) <- paste("Student.", c(1:4), sep = "")
