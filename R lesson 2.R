@@ -1,7 +1,7 @@
 
 # R lesson 1 part 2 -------------------------------------------------------
 
-rm(list = ls())  # THis deletes all variables, values and functions and clears the workspace. 
+rm(list = ls())  # This deletes all variables, values and functions and clears the workspace. 
 
 setwd("~/Work/Python.club/")  # This sets the active (working) directory. 
 # Modify this line to include the path to your working directory. 
@@ -46,13 +46,13 @@ class(myLogical)
 
 # Scalars -----------------------------------------------------------------
 
-# Scalars are the simplest types of variables, whcih contain only one element. 
+# Scalars are the simplest types of variables, which contain only one element. 
 # myString, myNumber, myLogical above are all examples of scalars
 
 
 # Vectors -----------------------------------------------------------------
 
-# vectors are linear arrays of two or more elements. Vecotrs can only store elements 
+# vectors are linear arrays of two or more elements. Vectors can only store elements 
 # of the same class. 
 
 # To create a vector we use the c() function, which includes the elements of the 
@@ -79,7 +79,7 @@ mat.1 <- matrix(ncol = 5, nrow = 10, c(sample(1:100, 50)))
 # then all rows in the second column, and so on
 
 # We can give the rows and columns of a matrix their names
-row.names(mat.1) <- letters[1:10]
+row.names(mat.1) <- letters[1:10]  # Letters is a built-in variable in R
 colnames(mat.1) <- c("John", "Mary", "NoName", "DropTableStudents", "Opossum")
 
 # And see what are the names of the rows and columns
@@ -143,7 +143,7 @@ mat.2[5, ]
 # Data frames are two-dimensional structures that can hold both character, numeric and logical values
 
 # Create an empty 4x6 data frame (4 rows and 6 columns)
-df <- data.frame("Name" = factor(4), 
+df <- data.frame("Name" = character(4), 
                  "Age.years" = integer(4), 
                  "Weight.lb" = numeric(4), 
                  "Height.cm" = numeric(4), 
@@ -179,8 +179,12 @@ df <- df[order(df$Age.years), ]
 
 # Deleting data from a data frame
 df.1 <- df[, -6]
-df.2 <- df[!(df$Blonde == TRUE), ]  # ! sign stands for "not"  (also a boolean)
-
+df$Blonde  # Gives us a logical vector
+df.2 <- df[df$Blonde == TRUE, ]  
+# Which is the same as to type: 
+df.3 <- df[df$Blonde, ]
+# Or choose rows which contain data for NOT BLONDES
+df.4 <- df[!(df$Blonde == TRUE), ]  # ! sign stands for "not"  (also a boolean) (not TRUE is FALSE)
 
 # Lists -------------------------------------------------------------------
 
