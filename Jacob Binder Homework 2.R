@@ -1,4 +1,4 @@
-#Making the variables
+#Making the variable types
 
 scalar <- 1
 vector <- c(1, 2)
