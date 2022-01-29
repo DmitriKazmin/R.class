@@ -32,3 +32,35 @@ for (i in 1:length(year)){
     deaths[[5]][[i]] <- TRUE
   }
 }
+
+
+# Dmitri's comments: 
+
+# Alternatively, you can do it in a simpler way through subsetting: 
+
+year <- unique(sb$year)
+
+deaths <- data.frame(
+  "Year" = year,
+  "Driver" = integer(length(year)),
+  "Front" = integer(length(year)),
+  "Rear" = integer(length(year)),
+  "Seatbelts" = logical(length(year))
+)
+# We use = , not <- , for forming data frames
+
+for (i in 1:length(year)){
+  deaths[i, 1] <- year[i]  # deaths is a data frame, not a list, we don't use [[]] for data frames
+  deaths[i, 2] <- sum(sb$drivers[sb$year == year[i]])
+  deaths[i, 3] <- sum(sb$front[sb$year == year[i]])
+  deaths[i, 4] <- sum(sb$rear[sb$year == year[i]])
+  if (year[i] < 1983) {
+    deaths[i, 5] <- FALSE
+  } else {
+    deaths[i, 5] <- TRUE
+  }
+}
+
+
+  
+
