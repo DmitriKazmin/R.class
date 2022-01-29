@@ -45,3 +45,6 @@ for (i in 1:length(years)) {
   killed[i, 5] <- any(y.data$law > 0)
 }
 write.table(killed, file = "Killed.txt", sep = "\t", row.names = FALSE)
+
+# EXCELLENT!! 
+# Dmitri 
