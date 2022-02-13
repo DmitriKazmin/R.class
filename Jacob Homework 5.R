@@ -32,4 +32,4 @@ pheatmap(genes,
          annotation_row = ann.row, 
          annotation_col = ann.col,
          main = "Genes more like jeans",
-         display_numbers = TRUE,)
+         display_numbers = TRUE)
